@@ -21,3 +21,10 @@
 - FaceBook Friend Network
 
 ## Input of a graph
+
+- Adjecency Matrix
+- Adjecency List
+- Edge List
+
+## Adjacency Matrix & Implementation
+
