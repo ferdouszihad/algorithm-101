@@ -2,13 +2,10 @@
 using namespace std;
 vector<int> adj[1005];
 bool visited[1005];
-int c = 0;
 void dfs(int src)
 {
     visited[src] = true;
-    c++;
 
-    // cout << src << endl;
     for (int node : adj[src])
         if (!visited[node])
             dfs(node);
@@ -28,26 +25,17 @@ int main()
         adj[n2].push_back(n1);
     }
 
+    int src;
+    cin >> src;
     memset(visited, false, sizeof(visited));
-
-    vector<int> gs;
-    for (int i = 0; i < n; i++)
+    dfs(src);
+    int count = 0;
+    for (bool v : visited)
     {
-
-        if (!visited[i])
-        {
-            dfs(i);
-            gs.push_back(c);
-            c = 0;
-        }
+        if (v)
+            count++;
     }
-
-    sort(gs.begin(), gs.end());
-
-    for (int size : gs)
-    {
-        cout << size << " ";
-    }
+    cout << count << endl;
 
     return 0;
 }
